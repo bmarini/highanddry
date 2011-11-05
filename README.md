@@ -16,3 +16,10 @@ Assuming you have redis running already, just run the following:
     foreman start
 
 Now browse to http://localhost:3000
+
+The browser is subscribed to receive messages on the channel "global-messages"
+and will log them to the firebug console. You can play with it by opening up
+the Rails app on the console and sending messages, like this:
+
+    rails console
+    > Juggernaut.publish "global-messages", :my => "object", :becomes => "a json obj on the browser"
