@@ -2,8 +2,8 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : 'YOUR_APP_ID', // App ID
-      channelURL : '//DOMAIN/channel.html', // Channel File
+      appId      : '<%= AppConfig.facebook['app_id'] %>', // App ID
+      channelURL : '<%= AppConfig.facebook['channel_url'] %>', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       oauth      : true, // enable OAuth 2.0

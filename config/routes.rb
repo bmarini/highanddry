@@ -1,6 +1,8 @@
 Highanddry::Application.routes.draw do
   root :to => 'home#index'
 
+  get '/channel.html' => 'home#facebook_channel'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

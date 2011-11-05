@@ -1,0 +1,14 @@
+# Create a file called config/app_config.local.yml and put your facebook
+# configuration in that file
+common:
+
+development:
+  domain: localhost
+  facebook:
+    app_id: override_this_in_your_local_config
+    channel_url: //localhost/channel.html
+
+production:
+  domain: highanddry.com
+  facebook:
+    app_id: APP_ID

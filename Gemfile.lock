@@ -39,6 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
+    configy (1.0.1)
     daemons (1.1.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -124,6 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
+  configy
   foreman
   jquery-rails
   juggernaut
