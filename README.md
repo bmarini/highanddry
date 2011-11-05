@@ -23,3 +23,13 @@ the Rails app on the console and sending messages, like this:
 
     rails console
     > Juggernaut.publish "global-messages", :my => "object", :becomes => "a json obj on the browser"
+
+## Technology Used
+
+* [rails](http://guides.rails.info)
+* [redis](http://redis.io)
+* [juggernaut](https://github.com/maccman/juggernaut)
+* [coffeescript](http://jashkenas.github.com/coffee-script)
+* [facebook javascript sdk](http://developers.facebook.com/docs/reference/javascript/)
+* [jquery](http://jquery.com)
+* [sammy](http://sammyjs.org)
