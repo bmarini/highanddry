@@ -13,6 +13,7 @@
 
       # Subscribe to an ikea store channel
       socket.on "ikea-store1", (data) ->
+        $("#chatroom").append("<b>#{data.name}</b> ") if data.name
         $("#chatroom").append(data.message).append("<br>")
 
       # Publish messages to the ikea channel
@@ -20,6 +21,10 @@
         $("#chatroom").append( $("#message").val() ).append("<br>")
         socket.emit 'ikea-store1', { message: $("#message").val() }
         $("#message").val("")
+        return false
+
+      $("#nickname-form").submit () ->
+        socket.emit 'set nickname', { nickname: $("#nickname").val() }
         return false
 
   # Kick things off
