@@ -1,12 +1,22 @@
-<h1>High and Dry</h1>
 <%= render :partial => "shared/facebook" %>
-<div id="main">
+<div id="content">
+  <h1>IKEA - Berkeley</h1>
   <p id="chatroom"></p>
   <form name="message-form" id="message-form" action="" method="get" accept-charset="utf-8">
-    <p><input type="text" name="message" value="" id="message" size="44"> <input type="submit" value="Send"></p>
-  </form>
-
-  <form name="nickname-form" id="nickname-form" action="" method="get" accept-charset="utf-8">
-    <p>Your Name: <input type="text" name="nickname" value="" id="nickname" size="10"> <input type="submit" value="Set"></p>
+    <table border="0" cellspacing="5" cellpadding="5">
+      <colgroups>
+        <col width="25%">
+        <col width="75%">
+      </colgroups>
+      <tr>
+        <th>Name</th>
+        <th>Message</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="nickname" value="" id="nickname" size="10"></td>
+        <td><input type="text" name="message" value="" id="message" size="44"></td>
+      </tr>
+    </table>
+    <p><input type="submit" value=" Send "></p>
   </form>
 </div>
