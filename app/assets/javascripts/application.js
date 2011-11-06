@@ -8,4 +8,5 @@
 //= require jquery_ujs
 //= require sammy.min
 //= require facebook
+//= require mobileboilerplate
 //= require highanddry
