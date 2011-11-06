@@ -1,5 +1,5 @@
 #content {
-  width: 320px;
+  width: 300px;
   margin: 0 auto;
   
   h1 {
@@ -7,7 +7,7 @@
 
   #chatroom {
     background: #eee;
-    height: 320px;
+    height: 160px;
     padding: 5px;
     overflow: auto;
     -webkit-border-radius: 5px;
@@ -26,10 +26,10 @@
     padding-bottom: 0;
   }
 
-  #message {
-    width: 100%;
-  }
   #nickname {
-    width: 100%;
+    width: 90%;
+  }
+  #message {
+    width: 95%;
   }
 }
