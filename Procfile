@@ -1,2 +1,2 @@
 web: bundle exec rails server thin
-jug: juggernaut --port 8080
+hub: coffee node/app.coffee
