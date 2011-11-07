@@ -1,0 +1,21 @@
+{
+  "name":        "highanddry",
+  "version":     "0.0.1",
+  "author":      "AKQA Team 1",
+  "keywords":    "",
+  "description": "",
+
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/bmarini/highanddry.git"
+  },
+
+  "dependencies": {
+    "coffee-script": "1.1.2",
+    "connect": "1.7.2",
+    "redis": "0.6.7",
+    "socket.io": "0.8.7"
+  },
+
+  "engine": "node >= 0.4.1 < 0.5.0"
+}

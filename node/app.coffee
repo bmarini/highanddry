@@ -21,3 +21,5 @@ io.sockets.on 'connection', (socket) ->
     socket.get 'nickname', (err, name) ->
       data['name'] = name
       socket.broadcast.emit('ikea-store1', data)
+
+    socket.emit 'ikea-store1', { message: "#{data.message} yourself!" }

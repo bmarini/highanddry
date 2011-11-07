@@ -7,13 +7,17 @@ This is the hackathon entry for "The Loneliest Number"
 Requirements:
 
 * ruby 1.9.2 (rvm or rbenv install 1.9.2)
+* bundler (gem install bundler)
+* node 0.6.0 (brew install node)
+* npm (curl http://npmjs.org/install.sh | sh)
+* coffee-script (npm install -g coffee-script)
 * redis (brew install redis)
-* connect, redis, socket.io (cd node && npm install connect redis socket.io)
 
 Assuming you have redis running already, just run the following:
 
     bundle
-    foreman start
+    cd node && node install .
+    bundle exec foreman start
 
 Now browse to http://localhost:3000
 
