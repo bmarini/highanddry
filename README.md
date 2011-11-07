@@ -16,7 +16,8 @@ Requirements:
 Assuming you have redis running already, just run the following:
 
     bundle
-    cd node && node install .
+    cd node && npm install .
+    cd ..
     bundle exec foreman start
 
 Now browse to http://localhost:3000
