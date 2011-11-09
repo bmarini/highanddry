@@ -1,0 +1,14 @@
+$red:#c00;
+$grey:#666;
+
+header {
+  width:100%;
+  padding:10px 0;
+  background-color:$red;
+  color:white;
+  text-align:center;  
+  font: {
+     size:22px;
+     weight:bold;
+  }
+}
