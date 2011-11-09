@@ -10,4 +10,29 @@ header {
      size:22px;
      weight:bold;
   }
+}                 
+#chooser {    
+  width:100%;
+  text-align:center;
+  h1 {
+    color:$red;
+    font: {
+      size:15px;
+    }
+  }
+  .selector {
+    padding:10px 0;
+  }
+}
+#form {
+  font: {
+    weight:bold;
+  }
+  width:100%;
+  .icon {
+    width:50px;
+  }            
+  select {
+    width:100%;
+  }
 }
