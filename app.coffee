@@ -7,10 +7,17 @@ server.use connect.static( "#{__dirname}/public" )
 server.listen(port)
 
 # Redis client
-redis = require('redis').createClient()
+# redis = require('redis').createClient()
+redis = require('redis-url').connect(process.env.REDISTOGO_URL)
 
 # Socket.IO
 io = require('socket.io').listen(server)
+
+# Heroku doesn't support websockets, lame!
+io.configure () ->
+  io.set("transports", ["xhr-polling"])
+  io.set("polling duration", 10)
+
 io.sockets.on 'connection', (socket) ->
   socket.on 'set nickname', (data) ->
     socket.set('nickname', data.nickname)
