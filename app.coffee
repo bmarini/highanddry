@@ -12,8 +12,6 @@ redis = require('redis').createClient()
 # Socket.IO
 io = require('socket.io').listen(server)
 io.sockets.on 'connection', (socket) ->
-  socket.emit('global-messages', { type: 'annoucement', message: 'Hello' } )
-
   socket.on 'set nickname', (data) ->
     socket.set('nickname', data.nickname)
 
