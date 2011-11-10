@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Target RideShare</title>
+  <link rel="stylesheet" href="/stylesheets/mobileboilerplate.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="/stylesheets/compiled/home.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="/stylesheets/compiled/site.css" type="text/css" media="screen" charset="utf-8">
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/compiled/facebook.js"></script>
+  <script src="/javascripts/mobileboilerplate.js"></script>
+  <script src="/javascripts/sammy.min.js"></script>
+  <script src="/javascripts/compiled/highanddry.js"></script>
+
+  <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- I like big buttons and I can't lie -->
+  <header>Target RideShare</header>
+
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '', // App ID
+        channelURL : '//localhost:5000/channel.html', // Channel File
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        oauth      : true, // enable OAuth 2.0
+        xfbml      : true  // parse XFBML
+      });
+
+      // Additional initialization code here
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+       var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+       js = d.createElement('script'); js.id = id; js.async = true;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       d.getElementsByTagName('head')[0].appendChild(js);
+     }(document));
+  </script>
+
+  <div id="chooser">
+    <!--location -->
+    <h1>Target San Francisco</h1>
+    <div class="selector">
+      <a href="#">
+        <img src="/images/INeedALift.png" />
+      </a>
+    </div>
+    <div class="selector">
+      <a href="#">
+        <img src="/images/ICanTakeYou.png" />
+      </a>
+    </div>
+  </div>
+
+  <table cellspacing="0" cellpadding="10" id="form">
+    <tr>
+      <td class="icon">
+        <img src="/images/location.png" />
+      </td>
+
+      <td>
+        Where to?<br />
+        <select name="whereto">
+          <option value="1">Berkley</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="icon">
+        <img src="/images/WhatIHave.png" />
+      </td>
+      <td>
+        What I have?<br />
+        <select name="ihave">
+          <option value="1">A Huge dresser</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+       <td class="icon">
+         <img src="/images/offer.png" />
+      </td>
+      <td>
+        What I offer?<br />
+        <select name="offer">
+          <option value="1">Split Gas</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <div id="content">
+
+    <p id="chatroom"></p>
+    <form name="message-form" id="message-form" action="" method="get" accept-charset="utf-8">
+      <table border="0" cellspacing="5" cellpadding="5">
+        <colgroups>
+          <col width="25%">
+          <col width="75%">
+        </colgroups>
+        <tr>
+          <th>Name</th>
+          <th>Message</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="nickname" value="" id="nickname"></td>
+          <td><input type="text" name="message" value="" id="message"></td>
+        </tr>
+      </table>
+      <p><input type="submit" value=" Send "></p>
+    </form>
+
+  </div>
+</body>
+</html>

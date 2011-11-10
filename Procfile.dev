@@ -1,0 +1,2 @@
+sass: bundle exec sass --watch assets/stylesheets:public/stylesheets/compiled
+coffee: bundle exec coffee --watch --compile --output public/javascripts/compiled assets/javascripts/*.coffee

@@ -1,0 +1,24 @@
+header {
+  padding: 10px 0;
+  background-color: #cc0000;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold; }
+
+#chooser {
+  width: 100%;
+  text-align: center; }
+  #chooser h1 {
+    color: #cc0000;
+    font-size: 15px; }
+  #chooser .selector {
+    padding: 10px 0; }
+
+#form {
+  font-weight: bold;
+  width: 100%; }
+  #form .icon {
+    width: 50px; }
+  #form select {
+    width: 100%; }
