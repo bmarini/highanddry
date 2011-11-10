@@ -26,8 +26,8 @@
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '', // App ID
-        channelURL : '//localhost:5000/channel.html', // Channel File
+        appId      : '276947125676817', // App ID
+        channelURL : '//highanddry.heroku.com/channel.html', // Channel File
         status     : true, // check login status
         cookie     : true, // enable cookies to allow the server to access the session
         oauth      : true, // enable OAuth 2.0
@@ -35,6 +35,7 @@
       });
 
       // Additional initialization code here
+      FB.Event.subscribe('auth.statusChange', Facebook.handleStatusChange);
     };
 
     // Load the SDK Asynchronously
