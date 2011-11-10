@@ -7,15 +7,16 @@ This is the hackathon entry for "The Loneliest Number"
 Requirements:
 
 * ruby 1.9.2 (rvm or rbenv install 1.9.2)
-* bundler (gem install bundler)
-* node 0.6.0 (brew install node)
+* node 0.4.x (brew install node)
 * npm (curl http://npmjs.org/install.sh | sh)
 * coffee-script (npm install -g coffee-script)
 * redis (brew install redis)
 
 Assuming you have redis running already, just run the following:
 
-    bundle
+    gem install foreman
+    gem install sass
+    gem install coffee-script
     cd node && npm install .
     cd ..
     bundle exec foreman start -f Procfile.dev
