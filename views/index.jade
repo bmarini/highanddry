@@ -25,56 +25,13 @@ script
      d.getElementsByTagName('head')[0].appendChild(js);
    }(document));
 
-#chooser
-  // location
-  h1 Target San Francisco
-  .selector
-    a(href="#")
-      img(src="/images/INeedALift.png")
-  .selector
-    a(href="#")
-      img(src="/images/ICanTakeYou.png")
-
-table#form(cellpadding="10", cellspacing="0")
-  tr
-    td.icon
-      img(src="/images/location.png")
-    td
-      Where to?
-      br
-      select(name="whereto")
-        option(value="1") Berkley
-  tr
-    td.icon
-      img(src="/images/WhatIHave.png")
-    td
-      What I have?
-      br
-      select(name="ihave")
-        option(value="1") A Huge dresser
-  tr
-    td.icon
-      img(src="/images/offer.png")
-    td
-      What I offer?
-      br
-      select(name="offer")
-        option(value="1") Split Gas
-
 #content
-  p#chatroom
-  form#message-form(accept-charset="utf-8", action="", method="get", name="message-form")
-    table(border="0", cellpadding="5", cellspacing="5")
-      colgroups
-      col(width="25")
-      col(width="75")
-      tr
-        th Name
-        th Message
-      tr
-        td
-          input#nickname(name="nickname", type="text", value="")
-        td
-          input#message(name="message", type="text", value="")
-    p
-      input(type="submit", value=" Send ")
+  #chooser
+    // location
+    h1 Target San Francisco
+    .selector
+      a(href="#/needalift")
+        img(src="/images/INeedALift.png")
+    .selector
+      a(href="#")
+        img(src="/images/ICanTakeYou.png")

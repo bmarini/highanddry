@@ -20,7 +20,6 @@ Assuming you have redis running already, just run the following:
     cd node && npm install .
     cd ..
     bundle exec foreman start -f Procfile.dev
-    bundle exec foreman start (in a seperate terminal)
 
 Now browse to http://localhost:5000
 
@@ -31,3 +30,5 @@ Now browse to http://localhost:5000
 * [facebook javascript sdk](http://developers.facebook.com/docs/reference/javascript/)
 * [jquery](http://jquery.com)
 * [sammy](http://sammyjs.org)
+* [jade](https://github.com/visionmedia/jade)
+* [express](http://expressjs.com)
