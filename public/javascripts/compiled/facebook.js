@@ -19,6 +19,15 @@
         scope: 'email'
       });
     };
+    Facebook.prototype.handleStatusChange = function(response) {
+      var _ref;
+      document.body.className = (_ref = response.authResponse) != null ? _ref : {
+        'connected': 'not-connected'
+      };
+      if (response.authResponse) {
+        return console.log(response);
+      }
+    };
     return Facebook;
   })();
   this.Facebook = new Facebook;

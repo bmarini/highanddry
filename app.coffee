@@ -1,17 +1,41 @@
-# Connect server
-connect = require('connect')
-server  = connect.createServer()
-port    = process.env.PORT || 9090
+express = require('express')
+routes  = require('./routes')
+app     = module.exports = express.createServer()
 
-server.use connect.static( "#{__dirname}/public" )
-server.listen(port)
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+app.configure () ->
+  app.set 'views', "#{__dirname}/views"
+  app.set 'view engine', 'jade'
+  app.use express.bodyParser()
+  app.use express.methodOverride()
+  app.use app.router
+  app.use express.static "#{__dirname}/public"
 
+app.configure 'development', () ->
+  app.use express.errorHandler({ dumpExceptions: true, showStack: true })
+
+app.configure 'production', () ->
+  app.use express.errorHandler()
+
+# ---------------------------------------------------------------------------
+# Routes
+# ---------------------------------------------------------------------------
+app.get '/', routes.index
+
+app.listen( process.env.PORT || 9090 )
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
+
+# ---------------------------------------------------------------------------
 # Redis client
-# redis = require('redis').createClient()
+# ---------------------------------------------------------------------------
 redis = require('redis-url').connect(process.env.REDISTOGO_URL)
 
+# ---------------------------------------------------------------------------
 # Socket.IO
-io = require('socket.io').listen(server)
+# ---------------------------------------------------------------------------
+io = require('socket.io').listen(app)
 
 # Heroku doesn't support websockets, lame!
 io.configure () ->

@@ -1,0 +1,21 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/mobileboilerplate.css')
+    link(rel='stylesheet', href='/stylesheets/compiled/home.css')
+    link(rel='stylesheet', href='/stylesheets/compiled/site.css')
+
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/compiled/facebook.js')
+    script(src='/javascripts/mobileboilerplate.js')
+    script(src='/javascripts/sammy.min.js')
+    script(src='/javascripts/compiled/highanddry.js')
+
+    // Mobile viewport optimization http://goo.gl/b9SaQ
+    meta(name="HandheldFriendly", content="True")
+    meta(name="MobileOptimized", content="320")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+  body!= body
