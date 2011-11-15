@@ -32,7 +32,7 @@
           return appendMessage(data.name, data.message);
         });
       });
-      return this.get('#/chatroom/message', function(context) {
+      return this.post('#/chatroom/message', function(context) {
         appendMessage($("#nickname").val(), $("#message").val());
         socket.emit('set nickname', {
           nickname: $("#nickname").val()

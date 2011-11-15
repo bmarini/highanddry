@@ -31,7 +31,7 @@
       socket.on "ikea-store1", (data) ->
         appendMessage(data.name, data.message)
 
-    @get '#/chatroom/message', (context) ->
+    @post '#/chatroom/message', (context) ->
       # Publish messages to the ikea channel
       appendMessage( $("#nickname").val(), $("#message").val() )
       socket.emit 'set nickname', { nickname: $("#nickname").val() }
