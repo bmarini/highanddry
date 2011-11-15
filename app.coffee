@@ -1,4 +1,5 @@
 express = require('express')
+expose  = require('express-expose')
 routes  = require('./routes')
 app     = module.exports = express.createServer()
 
@@ -15,9 +16,13 @@ app.configure () ->
 
 app.configure 'development', () ->
   app.use express.errorHandler({ dumpExceptions: true, showStack: true })
+  app.set 'socket_url', "http://localhost:#{process.env.PORT}"
 
 app.configure 'production', () ->
   app.use express.errorHandler()
+  app.set 'socket_url', 'http://highanddry.herokuapp.com'
+
+app.expose app.settings
 
 # ---------------------------------------------------------------------------
 # Routes
