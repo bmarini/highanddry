@@ -52,7 +52,7 @@ io.sockets.on 'connection', (socket) ->
       data['name'] = name
       socket.broadcast.emit('ikea-store1', data)
 
-    socket.emit 'ikea-store1', { message: "#{data.message} yourself!" }
+    # socket.emit 'ikea-store1', { message: "#{data.message} yourself!" }
 
 # ---------------------------------------------------------------------------
 # Routes
