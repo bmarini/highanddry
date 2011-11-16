@@ -62,6 +62,10 @@ app.get '/', routes.index
 app.get '/mobile', (req, res) ->
   res.render('mobile_chat', { nickname: req.param('name'), title: 'Target RideShare' })
 
+app.post '/reset', (req, res) ->
+  redis.del("riders")
+  res.json({ message: "Reset riders collection" }, 200)
+
 # {"compensation":0,"direction":"San Francisco","fbid":"\"100002193978966\"","name":"\"Yakov Boychik\"","payLoad":"Grocery"}
 app.post '/riders', (req, res) ->
   rider = req.body
