@@ -59,17 +59,18 @@ io.sockets.on 'connection', (socket) ->
 # ---------------------------------------------------------------------------
 app.get '/', routes.index
 
-# {"FBid":" 100002193978966","Name":"Some trucker ","Direction":"San Francisco","PayLoad":"Furniture","Compensation":10}
+# {"compensation":0,"direction":"San Francisco","fbid":"\"100002193978966\"","name":"\"Yakov Boychik\"","payLoad":"Grocery"}
+
 app.post '/riders', (req, res) ->
   rider = req.body
   console.log(rider)
 
-  redis.sadd "riders", rider.FBid
-  redis.hset rider.FBid, "Name", rider.Name
-  redis.hset rider.FBid, "Direction", rider.Direction
-  redis.hset rider.FBid, "PayLoad", rider.PayLoad
-  redis.hset rider.FBid, "Compensation", rider.Compensation
-  redis.expire rider.Fbid, (60 * 60)
+  redis.sadd "riders", rider.fbid
+  redis.hset rider.fbid, "name", rider.name
+  redis.hset rider.fbid, "direction", rider.direction
+  redis.hset rider.fbid, "payLoad", rider.payLoad
+  redis.hset rider.fbid, "compensation", rider.compensation
+  redis.expire rider.fbid, (60 * 5)
   res.json(rider, 201)
 
 app.get '/riders', (req, res) ->
