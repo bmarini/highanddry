@@ -1,6 +1,7 @@
-#chatroom
-form(name='message-form', id='message-form', action='#/chatroom/message', method='post', accept-charset='utf-8')
-  p
-    input(type='text', name='message', value='', id='message')
-  p
-    input(type='submit', value=' Send ')
+#content
+  #chatroom
+  form(name='message-form', id='message-form', action='#/chatroom/message', method='post', accept-charset='utf-8')
+    p
+      input(type='hidden', name='nickname', value="#{nickname}")
+      input(type='text', name='message', value='', id='message')
+      input(type='submit', value=' Send ')

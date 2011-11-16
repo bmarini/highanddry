@@ -59,17 +59,20 @@ io.sockets.on 'connection', (socket) ->
 # ---------------------------------------------------------------------------
 app.get '/', routes.index
 
-# {"compensation":0,"direction":"San Francisco","fbid":"\"100002193978966\"","name":"\"Yakov Boychik\"","payLoad":"Grocery"}
+app.get '/mobile', (req, res) ->
+  res.render('mobile_chat', { nickname: req.param('name'), title: 'Target RideShare' })
 
+# {"compensation":0,"direction":"San Francisco","fbid":"\"100002193978966\"","name":"\"Yakov Boychik\"","payLoad":"Grocery"}
 app.post '/riders', (req, res) ->
   rider = req.body
   console.log(rider)
 
   redis.sadd "riders", rider.fbid
+  redis.hset rider.fbid, "fbid", rider.fbid
   redis.hset rider.fbid, "name", rider.name
   redis.hset rider.fbid, "direction", rider.direction
   redis.hset rider.fbid, "payLoad", rider.payLoad
-  redis.hset rider.fbid, "compensation", rider.compensation
+  redis.hset rider.fbid, "compensation", parseInt(rider.compensation)
   redis.expire rider.fbid, (60 * 5)
   res.json(rider, 201)
 
