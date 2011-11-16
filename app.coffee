@@ -68,6 +68,7 @@ app.post '/riders', (req, res) ->
   redis.hset rider.Fbid, "PayLoad", rider.PayLoad
   redis.hset rider.Fbid, "Compensation", rider.Compensation
   redis.expire rider.Fbid, (60 * 60)
+  res.json(rider, 201)
 
 app.listen( process.env.PORT || 5000 )
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
