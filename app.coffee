@@ -62,13 +62,26 @@ app.get '/', routes.index
 # {"FBid":" 100002193978966","Name":"Some trucker ","Direction":"San Francisco","PayLoad":"Furniture","Compensation":10}
 app.post '/riders', (req, res) ->
   rider = req.body
-  redis.sadd "riders", rider.Fbid
-  redis.hset rider.Fbid, "Name", rider.Name
-  redis.hset rider.Fbid, "Direction", rider.Direction
-  redis.hset rider.Fbid, "PayLoad", rider.PayLoad
-  redis.hset rider.Fbid, "Compensation", rider.Compensation
+  console.log(rider)
+
+  redis.sadd "riders", rider.FBid
+  redis.hset rider.FBid, "Name", rider.Name
+  redis.hset rider.FBid, "Direction", rider.Direction
+  redis.hset rider.FBid, "PayLoad", rider.PayLoad
+  redis.hset rider.FBid, "Compensation", rider.Compensation
   redis.expire rider.Fbid, (60 * 60)
   res.json(rider, 201)
+
+app.get '/riders', (req, res) ->
+  redis.smembers 'riders', (err, replies) ->
+    results = []
+
+    build_json = (rider) ->
+      redis.hgetall rider, (err, reply) ->
+        results.push reply
+        res.json(results, 200) if results.length == replies.length
+
+    build_json rider for rider in replies
 
 app.listen( process.env.PORT || 5000 )
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
