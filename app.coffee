@@ -25,14 +25,6 @@ app.configure 'production', () ->
 app.expose app.settings
 
 # ---------------------------------------------------------------------------
-# Routes
-# ---------------------------------------------------------------------------
-app.get '/', routes.index
-
-app.listen( process.env.PORT || 5000 )
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
-
-# ---------------------------------------------------------------------------
 # Redis client
 # ---------------------------------------------------------------------------
 redis = require('redis-url').connect(process.env.REDISTOGO_URL)
@@ -61,3 +53,22 @@ io.sockets.on 'connection', (socket) ->
       socket.broadcast.emit('ikea-store1', data)
 
     socket.emit 'ikea-store1', { message: "#{data.message} yourself!" }
+
+# ---------------------------------------------------------------------------
+# Routes
+# ---------------------------------------------------------------------------
+app.get '/', routes.index
+
+# {"FBid":" 100002193978966","Name":"Some trucker ","Direction":"San Francisco","PayLoad":"Furniture","Compensation":10}
+app.post '/riders', (req, res) ->
+  rider = req.body
+  redis.sadd "riders", rider.Fbid
+  redis.hset rider.Fbid, "Name", rider.Name
+  redis.hset rider.Fbid, "Direction", rider.Direction
+  redis.hset rider.Fbid, "PayLoad", rider.PayLoad
+  redis.hset rider.Fbid, "Compensation", rider.Compensation
+  redis.expire rider.Fbid, (60 * 60)
+
+app.listen( process.env.PORT || 5000 )
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
+
